@@ -1,8 +1,39 @@
+## 介绍
+
+这是一个 prisma + nestjs + graphql 的集成示例
+
+对于开发者来说，特别是使用 graphql 的时候，只需要写非常少量的代码即可完成数据的各种操作，同时也支持接口透传。
+
 ### 开发&部署
 
 #### 本地开发
 
 npm run start:dev
+
+swagger 地址：http://localhost:3001/swagger
+
+graphql playground：http://localhost:3001/index.html
+
+### 核心能力
+
+#### 1. prisma 集成
+
+- prisma 接管数据模型定义
+- prisma 提供 orm 数据操作
+- prisma 提供数据订正和管理
+
+#### 2. graphql 集成
+
+- prisma-nestjs-graphql 提供 prisma 数据模型到 graphql 类型的转换
+- 使用 nestjs 内置的代码优先模式，使用生成的类型提供 graphql 模型
+- 使用 graphql 模型 + orm，自动通过 resolver 提供给前端访问接口
+- 此方案中，普通和高级的增删改查基本不需要自己增加代码
+
+#### 3. restful api proxy
+
+- 通过 swagger-to-graphql 将 openapi 接口通过 oas 文档直接转换为 graphql 定义
+- 通过 graphqlHTTP 将请求代理到 restful 接口
+- 此方案中，swagger 的描述无缝转换到 graphql 描述，并自动代理请求
 
 ### 开发流程
 
@@ -116,33 +147,6 @@ export class TagsGqlService {
 
 #### 6. 查看 swagger 和 graphql playground
 
-swagger 地址：http://localhost:3000/api
+swagger 地址：http://localhost:3000/swagger
 
 graphql playground：http://localhost:3000/index.html
-
-### 其他问题
-
-#### 1. 在接口或者 GQL Resolver 中如何获取用户信息？
-
-rest 接口中
-
-```typescript
-@Post()
-@ApiOperation({ summary: '新建标签' })
-create(@Body() createTagDto: CreateTagDto, @Request() req) {
-  createTagDto.user_id = req.user.id;
-  return this.tagsService.create(createTagDto);
-}
-```
-
-GQL Resolver 中
-
-```typescript
-@Mutation(() => tag, { name: 'creatTag' })
-createTag(@Args('tag') createTagsGqlInput: tagCreateInput, @Context() ctx) {
-  createTagsGqlInput.user_id = ctx.req.user.id;
-  return this.tagsGqlService.create({
-    data: createTagsGqlInput,
-  });
-}
-```
