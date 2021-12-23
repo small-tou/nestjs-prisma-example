@@ -35,6 +35,12 @@ graphql playground：http://localhost:3001/index.html
 - 通过 graphqlHTTP 将请求代理到 restful 接口
 - 此方案中，swagger 的描述无缝转换到 graphql 描述，并自动代理请求
 
+#### 4. nestjs 本身一些特性的示例
+
+- 全局钩子，并且兼容 graphql 和 rest 请求，如 登录校验、返回封装、错误处理等
+- graphql 集成和配置，graphql 代理集成和配置
+- yaml 配置和加载
+
 ### 开发流程
 
 #### 1. 首先定义业务模型（prisma scheme）
