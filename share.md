@@ -122,21 +122,8 @@ npx prisma migrate dev --name nick-need
 
 - graphiql playground 类 swagger，但是是正式环境的能力，所有开放的 graphql 服务都可以生成文档和演示请求。
 - [Explorer - GitHub Docs](https://docs.github.com/en/graphql/overview/explorer)
+- [graphiql-explorer](https://github.com/OneGraph/graphiql-explorer)
 - [Yuce GraphiQL](http://localhost:3000/index.html?url=https://api.github.com/graphql)
-
----
-
-### → Pkg → RPM
-
-- 环境 0 依赖
-
----
-
-### 其他
-
-- 原则？
-  - 数据模型一定要由服务端定义，除非数据本身就是完全为视图层存储的，如 布局。
-  - 视图层逻辑对数据库尽量只读，不要删改。
 
 ---
 

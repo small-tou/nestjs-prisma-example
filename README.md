@@ -47,6 +47,8 @@ graphql playground：http://localhost:3001/index.html
 
 ![](./F0698852-0F7F-4C35-88F5-E2BA76E47B09.png)
 
+更多信息：[](./share.md)
+
 ### 开发流程
 
 #### 1. 首先定义业务模型（prisma scheme）
