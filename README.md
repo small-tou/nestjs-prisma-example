@@ -41,6 +41,12 @@ graphql playground：http://localhost:3001/index.html
 - graphql 集成和配置，graphql 代理集成和配置
 - yaml 配置和加载
 
+#### 5. graphiql-explorer 快速组合查询
+
+- 通过 graphiQL 的第三方插件 graphiql-explorer 快速预览和组合 graphql 请求
+
+![](./F0698852-0F7F-4C35-88F5-E2BA76E47B09.png)
+
 ### 开发流程
 
 #### 1. 首先定义业务模型（prisma scheme）
