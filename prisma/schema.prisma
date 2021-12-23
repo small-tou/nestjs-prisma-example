@@ -1,0 +1,31 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["debian-openssl-1.1.x", "rhel-openssl-1.0.x", "rhel-openssl-1.1.x", "native"]
+}
+
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../src/dto"
+  outputToNestJsResourceStructure = "true"
+}
+
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../src/@generated"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db.sqlite"
+}
+
+model tag {
+  id         Int      @id @default(autoincrement())
+  uid        String   @unique @default(uuid())
+  name       String   @default("")
+  use_count  Int      @default(0)
+  user_id    String   @default("")
+  is_delete  Boolean  @default(false)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}

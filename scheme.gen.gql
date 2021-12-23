@@ -1,0 +1,167 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type tag {
+  id: ID!
+  uid: String!
+  name: String!
+  use_count: Int!
+  user_id: String!
+  is_delete: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  tagsAll(where: tagWhereInput, orderBy: [tagOrderByWithRelationInput!], cursor: tagWhereUniqueInput, take: Int, skip: Int, distinct: [TagScalarFieldEnum!]): [tag!]!
+  tagUnique(where: tagWhereUniqueInput!): tag!
+  tagCount(where: tagWhereInput!): Float!
+}
+
+input tagWhereInput {
+  AND: [tagWhereInput!]
+  OR: [tagWhereInput!]
+  NOT: [tagWhereInput!]
+  id: IntFilter
+  uid: StringFilter
+  name: StringFilter
+  use_count: IntFilter
+  user_id: StringFilter
+  is_delete: BoolFilter
+  created_at: DateTimeFilter
+  updated_at: DateTimeFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input BoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input NestedBoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input tagOrderByWithRelationInput {
+  id: SortOrder
+  uid: SortOrder
+  name: SortOrder
+  use_count: SortOrder
+  user_id: SortOrder
+  is_delete: SortOrder
+  created_at: SortOrder
+  updated_at: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input tagWhereUniqueInput {
+  id: Int
+  uid: String
+}
+
+enum TagScalarFieldEnum {
+  id
+  uid
+  name
+  use_count
+  user_id
+  is_delete
+  created_at
+  updated_at
+}
+
+type Mutation {
+  creatTag(tag: tagCreateInput!): tag!
+}
+
+input tagCreateInput {
+  uid: String
+  name: String
+  use_count: Int
+  user_id: String
+  is_delete: Boolean
+  created_at: DateTime
+  updated_at: DateTime
+}
